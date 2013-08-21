@@ -1,12 +1,12 @@
 CACHE MANIFEST
-# 2013-05-19T17:40:52.566Z
+# 2013-08-21T10:17:33.010Z
 
 # cache all of these
 CACHE:
 syntaxhighlighter/syntaxhighlighter-combined.js
 ../angular.min.js
 docs-combined.js
-docs-keywords.js
+docs-data.js
 docs-combined.css
 syntaxhighlighter/syntaxhighlighter-combined.css
 img/texture_1.png

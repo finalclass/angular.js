@@ -1,16 +1,17 @@
-<h1><code ng:non-bindable=""></code>
-<span class="hint"></span>
+<a href="http://github.com/angular/angular.js/edit/master/docs/content/cookbook/helloworld.ngdoc" class="improve-docs btn btn-primary"><i class="icon-edit"> </i> Improve this doc</a><h1><code ng:non-bindable=""></code>
+<div><span class="hint"></span>
+</div>
 </h1>
-<div><a href="http://github.com/angular/angular.js/edit/master/docs/content/cookbook/helloworld.ngdoc" class="improve-docs btn btn-primary">Improve this doc</a><h3>Source</h3>
-<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-10" source-edit-css="" source-edit-js="script.js-9" source-edit-unit="" source-edit-scenario="scenario.js-11"></div>
+<div><div class="cookbook-page cookbook-hello-world-page"><h3>Source</h2>
+<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-10" source-edit-css="" source-edit-js="script.js-9" source-edit-json="" source-edit-unit="" source-edit-scenario="scenario.js-11"></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
 <pre class="prettyprint linenums" ng-set-text="index.html-10" ng-html-wrap=" angular.js script.js"></pre>
 <script type="text/ng-template" id="index.html-10">
  
  <div ng-controller="HelloCntl">
-   Your name: <input type="text" ng-model="name" value="World"/>
+   Your name: <input type="text" ng-model="name"/>
    <hr/>
-   Hello {{name}}!
+   Hello {{name || "World"}}!
  </div>
 </script>
 </div>
@@ -32,13 +33,10 @@
   });
 </script>
 </div>
-</div><h3>Demo</h3>
-<div class="well doc-example-live animator-container" ng-embed-app="" ng-set-html="index.html-10" ng-eval-javascript="script.js-9"></div>
-
-<h1 id="thingstonotice">Things to notice</h2>
-
+</div><h2>Demo</h3>
+<div class="well doc-example-live animate-container" ng-embed-app="" ng-set-html="index.html-10" ng-eval-javascript="script.js-9"></div>
+<h2>Things to notice</h2>
 <p>Take a look through the source and note:</p>
-
 <ul>
 <li>The script tag that <a href="guide/bootstrap">bootstraps</a> the Angular environment.</li>
 <li>The text <a href="api/ng.directive:input"><code>input form control</code></a> which is
@@ -49,4 +47,5 @@ bound to the greeting name text.</li>
 <li>The concept of <a href="guide/dev_guide.templates.databinding">data binding</a>, which reflects any
 changes to the
 input field in the greeting text.</li>
-</ul></div>
+</ul>
+</div></div>
