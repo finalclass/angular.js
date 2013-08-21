@@ -122,6 +122,22 @@ describe('$sniffer', function() {
       });
     });
 
+    it('should still work for an older version of Webkit', function() {
+      module(function($provide) {
+        var doc = {
+          body : {
+            style : {
+              WebkitOpacity: '0'
+            }
+          }
+        };
+        $provide.value('$document', jqLite(doc));
+      });
+      inject(function($sniffer) {
+        expect($sniffer.vendorPrefix).toBe('webkit');
+      });
+    });
+
   });
 
   describe('animations', function() {
@@ -179,6 +195,45 @@ describe('$sniffer', function() {
         expect($sniffer.animations).toBe(true);
       });
     });
+
+    it('should be true on android with older body style properties', function() {
+      module(function($provide) {
+        var doc = {
+          body : {
+            style : {
+              webkitAnimation: ''
+            }
+          }
+        };
+        var win = {
+          navigator: {
+            userAgent: 'android 2'
+          }
+        };
+        $provide.value('$document', jqLite(doc));
+        $provide.value('$window', win);
+      });
+      inject(function($sniffer) {
+        expect($sniffer.animations).toBe(true);
+      });
+    });
+
+    it('should be true when an older version of Webkit is used', function() {
+      module(function($provide) {
+        var doc = {
+          body : {
+            style : {
+              WebkitOpacity: '0'
+            }
+          }
+        };
+        $provide.value('$document', jqLite(doc));
+      });
+      inject(function($sniffer) {
+        expect($sniffer.animations).toBe(false);
+      });
+    });
+
   });
 
   describe('transitions', function() {
@@ -232,6 +287,28 @@ describe('$sniffer', function() {
           }
         };
         $provide.value('$document', jqLite(doc));
+      });
+      inject(function($sniffer) {
+        expect($sniffer.transitions).toBe(true);
+      });
+    });
+
+    it('should be true on android with older body style properties', function() {
+      module(function($provide) {
+        var doc = {
+          body : {
+            style : {
+              webkitTransition: ''
+            }
+          }
+        };
+        var win = {
+          navigator: {
+            userAgent: 'android 2'
+          }
+        };
+        $provide.value('$document', jqLite(doc));
+        $provide.value('$window', win);
       });
       inject(function($sniffer) {
         expect($sniffer.transitions).toBe(true);
